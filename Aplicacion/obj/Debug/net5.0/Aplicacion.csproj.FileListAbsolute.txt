@@ -1,0 +1,17 @@
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Aplicacion.deps.json
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Aplicacion.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\ref\Aplicacion.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Aplicacion.pdb
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Dominio.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Persistencia.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Dominio.pdb
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\bin\Debug\net5.0\Persistencia.pdb
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.AssemblyReference.cache
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfoInputs.cache
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.AssemblyInfo.cs
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CoreCompileInputs.cache
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.csproj.CopyComplete
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\ref\Aplicacion.dll
+C:\Users\JorgeL\source\repos\netLis\Aplicacion\obj\Debug\net5.0\Aplicacion.pdb
