@@ -1,0 +1,12 @@
+#sidebar-container {
+  min-height: 100vh;
+}
+
+.square-img {
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
+
+.profile-pic {
+  height: 25px;
+}
