@@ -8,5 +8,9 @@
 }
 
 .profile-pic {
-  height: 25px;
+  height: 30px;
+}
+
+.circle {
+  border-radius: 100%;
 }

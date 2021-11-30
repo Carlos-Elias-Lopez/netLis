@@ -96,10 +96,10 @@ export const Header = () => {
                   aria-expanded="false"
                 >
                   <img
-                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffthmb.tqn.com%2Fo-WuSYyDdXO-cv3KEL5LEWkS9EQ%3D%2F3801x4791%2Ffilters%3Afill(auto%2C1)%2Fportrait-of-albert-einstein-114339176-58b9ce465f9b58af5ca7ee83.jpg&f=1&nofb=1"
-                    className="square-img img-fluid rounded-3 profile-pic me-1"
+                    src="https://scontent.fmga8-1.fna.fbcdn.net/v/t1.6435-9/75253044_2799641476723090_6804376207262482432_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=174925&_nc_ohc=ll5Y66LulA0AX_ukar5&_nc_ht=scontent.fmga8-1.fna&oh=6098dcef153f74c24209999f57324b8d&oe=61CBA86A"
+                    className="square-img img-fluid circle profile-pic me-1"
                   />
-                  Albert Einstein
+                  Halbaro Halfonzo
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
