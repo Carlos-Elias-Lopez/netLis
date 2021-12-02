@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RBr9iFt8OQcmWxaLesqQLVYKmGLc5VGI6KaSblUVVFJC4xbOl7TT9fGXe5Oh1M0nyD4yM7e6ct0D/DXn7o4+tg==",
+  "dgSpecHash": "wEFVFXSLuF1C8RvqE7Csr1z314h4RqhMKzn2Nck51GgwreFj8+1nfq0sztIA/ji2uEKiGq5Prq0hLGsm1xaEHw==",
   "success": true,
   "projectFilePath": "C:\\Users\\carlos\\Documents\\netLis\\Aplicacion\\Aplicacion.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\carlos\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
+    "C:\\Users\\carlos\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.4\\fluentvalidation.aspnetcore.10.3.4.nupkg.sha512",
+    "C:\\Users\\carlos\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.4\\fluentvalidation.dependencyinjectionextensions.10.3.4.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.12\\microsoft.aspnetcore.cryptography.internal.5.0.12.nupkg.sha512",

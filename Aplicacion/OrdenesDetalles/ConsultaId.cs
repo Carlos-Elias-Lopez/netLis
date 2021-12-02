@@ -1,8 +1,10 @@
-﻿using Dominio.Model;
+﻿using Aplicacion.ManejadorError;
+using Dominio.Model;
 using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -25,6 +27,10 @@ namespace Aplicacion.OrdenesDetalles
             public async Task<TblOrdenesDetalle> Handle(ConsultaUnica request, CancellationToken cancellationToken)
             {
                 var ordenDetalle = await _context.TblOrdenesDetalles.FindAsync(request.Id);
+                if (ordenDetalle == null)
+                {
+                   throw new ManejadorExcepcion(HttpStatusCode.NotFound, new { mensaje = "El detalle de la orden no existe" });
+                }
                 return ordenDetalle;
             }
         }

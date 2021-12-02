@@ -19,7 +19,6 @@ C:\Users\carlos\Documents\netLis\Dominio\bin\Debug\net5.0\Dominio.runtimeconfig.
 C:\Users\carlos\Documents\netLis\Dominio\bin\Debug\net5.0\Dominio.dll
 C:\Users\carlos\Documents\netLis\Dominio\bin\Debug\net5.0\ref\Dominio.dll
 C:\Users\carlos\Documents\netLis\Dominio\bin\Debug\net5.0\Dominio.pdb
-C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.csproj.AssemblyReference.cache
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfoInputs.cache
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.AssemblyInfo.cs
@@ -28,3 +27,4 @@ C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.dll
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\ref\Dominio.dll
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.pdb
 C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.genruntimeconfig.cache
+C:\Users\carlos\Documents\netLis\Dominio\obj\Debug\net5.0\Dominio.csproj.AssemblyReference.cache

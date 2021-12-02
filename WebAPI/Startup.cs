@@ -1,6 +1,7 @@
 using Aplicacion.Pais;
 using Dominio;
 using Dominio.Model;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -18,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPI.Middleware;
 
 namespace WebAPI
 {
@@ -37,25 +39,27 @@ namespace WebAPI
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddMediatR(typeof(Consulta));
-
+            
             var builder = services.AddIdentityCore<TblUsuario>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
             identityBuilder.AddEntityFrameworkStores<netLisContext>();
             identityBuilder.AddSignInManager<SignInManager<TblUsuario>>();
             services.TryAddSingleton<ISystemClock, SystemClock>();
-
+           // services.AddControllers().AddFluentValidation(sfg => sfg.RegisterValidatorsFromAssemblyContaining<Nuevo>());
             services.AddControllers();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<ManejadorErrorMiddleware>();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
 
             app.UseRouting();
 

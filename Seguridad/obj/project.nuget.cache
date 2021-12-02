@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "XiG23sBor/KeNFHQnuFvEBoQH/KMxFZgOYL9o1GW0yEDNY/FdYDlh1w7PzmvpKoANpMiaoFzlBnub+i4R/o9Lg==",
+  "dgSpecHash": "DIuFBQWfRUFqQ1sxM1qh46U+r0LxKVRTs094fes8U+nvzn4XnALo/ffQpPuDcrGDR2WCWw7YP4twxhMSxXBtaQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\carlos\\Documents\\netLis\\Seguridad\\Seguridad.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\carlos\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512"
+  ],
   "logs": []
 }
