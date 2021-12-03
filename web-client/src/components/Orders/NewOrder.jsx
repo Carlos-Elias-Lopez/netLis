@@ -47,7 +47,6 @@ export const NewOrder = () => {
               value={order.patient}
               onChange={orderHandler}
               placeholder="Nombre o número de expendiente del paciente"
-              
             />
           </div>
           <div className="mb-3 col-12 col-md-6">
