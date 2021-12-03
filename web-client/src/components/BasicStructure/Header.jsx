@@ -1,19 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className="w-100">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a href="#" className="navbar-brand">
+          <a href="/" className="navbar-brand">
             NetLis
           </a>
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
+            data-bs-target="/navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -25,7 +25,7 @@ export const Header = () => {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -40,7 +40,7 @@ export const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/order">
                       Ver órdenes
                     </a>
                   </li>
@@ -49,7 +49,7 @@ export const Header = () => {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -59,7 +59,7 @@ export const Header = () => {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/patient">
                       Ver pacientes
                     </a>
                   </li>
@@ -68,7 +68,7 @@ export const Header = () => {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -78,7 +78,7 @@ export const Header = () => {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/report">
                       Ver reportes
                     </a>
                   </li>
@@ -90,17 +90,17 @@ export const Header = () => {
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="/"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Halbaro Halfonzo
+                  Franklin González
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/profile">
                       Ver perfil
                     </a>
                   </li>
@@ -108,7 +108,7 @@ export const Header = () => {
                     <hr className="dropdown-diveder" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/logout">
                       Cerrar sesión
                     </a>
                   </li>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 // import { Grid, TextField, Typography } from "@mui/material";
+import axios from "axios";
 
 export const NewOrder = (props) => {
   const defaultState = {
@@ -11,7 +12,7 @@ export const NewOrder = (props) => {
     doctor: "",
     note: "",
     test: [],
-    appointmentDate: new Date().toISOString().slice(0, 19).replace("T", " "),
+    appointmentDate: new Date().toISOString().slice(0, 19),
   };
 
   const [order, setOrder] = useState(defaultState);
@@ -28,21 +29,50 @@ export const NewOrder = (props) => {
       const ot = props.orderType.find((o) => o.idTipoOrden === value);
       setOrderTypeName(ot.descripcion);
     }
+    console.log(value);
+  };
+
+  const addExam = (e) => {
+    const { id, checked } = e.target;
+    const testAux = order.test;
+
+    if (checked) {
+      testAux.push(id);
+    } else {
+      testAux.splice(testAux.indexOf(id), 1);
+    }
+
+    setOrder((prev) => ({
+      ...prev,
+      test: testAux,
+    }));
   };
 
   const save = (e) => {
     e.preventDefault();
+
+    const data = {
+      nOrden: parseInt(Math.random() * 100000000000).toString(),
+      idtblMedico: order.doctor,
+      idPaciente: order.patient,
+      idTipoServicio: order.serviceType,
+      idTipoOrden: order.orderType,
+      asistencia: "Asistió",
+      observaciones: order.note,
+      fechaOrden: order.appointmentDate,
+      ListExamen: order.test,
+    };
+
     if (
       order.patient !== "" &&
       order.orderType !== "" &&
       order.serviceType !== "" &&
-      order.hospital !== "" &&
-      order.department !== "" &&
       order.doctor !== "" &&
       order.test !== []
     ) {
       console.log(order);
-      setOrder(defaultState);
+      axios.post("https://localhost:44342/api/Orden", data);
+      //setOrder(defaultState);
     }
   };
 
@@ -130,15 +160,43 @@ export const NewOrder = (props) => {
                 name="appointmentDate"
                 id="appointmentDate"
                 className="form-control"
+                value={order.appointmentDate}
+                onChange={(event) => orderHandler(event)}
               />
             </div>
           ) : (
             ""
           )}
+
+          <div className="mb-3 col-12 col-md-6">
+            <label htmlFor="doctor" className="form-label">
+              Médico
+            </label>
+
+            <select
+              name="doctor"
+              id="doctor"
+              onChange={orderHandler}
+              onClick={orderHandler}
+              value={order.doctor}
+              className="form-select"
+            >
+              {props.doctor.map((d) => {
+                return (
+                  <option
+                    key={d.idTblMedico}
+                    value={d.idTblMedico}
+                  >{`${d.nombres} ${d.apellidos} - ${d.codMinsa}`}</option>
+                );
+              })}
+            </select>
+          </div>
         </div>
 
-        <h3 className="mb-3">Origen</h3>
-        <div className="row mb-3">
+        <h3 className="mb-3" hidden>
+          Origen
+        </h3>
+        <div className="row mb-3" hidden>
           <div className="mb-3 col-12">
             <label htmlFor="hospital" className="form-label">
               Hospital
@@ -160,6 +218,7 @@ export const NewOrder = (props) => {
               })}
             </select>
           </div>
+
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="department" className="form-label">
               Área de servicio
@@ -181,6 +240,7 @@ export const NewOrder = (props) => {
               })}
             </select>
           </div>
+
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="doctor" className="form-label">
               Médico
@@ -230,14 +290,17 @@ export const NewOrder = (props) => {
             <div className="border border-1 border-dark overflow-auto rounded-3 h-10 p-2">
               {props.test.map((t) => {
                 return (
-                  <div>
+                  <div key={t.idExamen}>
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      value={t.idExamen}
                       id={t.idExamen}
+                      onClick={(event) => addExam(event)}
                     />
-                    <label class="form-check-label" for="flexCheckDefault">
+                    <label
+                      className="form-check-label"
+                      htmlFor="flexCheckDefault"
+                    >
                       {t.descripcion}
                     </label>
                   </div>

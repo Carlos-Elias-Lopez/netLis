@@ -7,6 +7,7 @@ import axios from "axios";
 // import { RegistrarUsuario } from "./components/seguridad/RegistrarUsuario";
 import { Header } from "./components/BasicStructure/Header";
 import { NewOrder } from "./components/Orders/NewOrder";
+import { Login } from "./components/seguridad/Login";
 
 const App = () => {
   const baseURL = "https://localhost:44342";
@@ -18,6 +19,7 @@ const App = () => {
   const [serviceArea, setServiceArea] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [test, setTest] = useState([]);
+  const [auth, setAuth] = useState(true);
 
   const getOrderType = () => {
     setLoading(true);
@@ -87,7 +89,7 @@ const App = () => {
 
   return loading ? (
     <h1>Cargando</h1>
-  ) : (
+  ) : auth ? (
     <>
       <Header />
       <Router>
@@ -110,6 +112,8 @@ const App = () => {
         </Routes>
       </Router>
     </>
+  ) : (
+    <Login />
   );
 };
 
