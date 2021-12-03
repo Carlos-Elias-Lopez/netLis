@@ -12,11 +12,11 @@ export const NewOrder = (props) => {
     doctor: "",
     note: "",
     test: [],
-    appointmentDate: new Date().toISOString().slice(0, 19),
+    appointmentDate: new Date().toISOString().slice(0, 16),
   };
 
   const [order, setOrder] = useState(defaultState);
-  const [orderTypeName, setOrderTypeName] = useState("");
+  const [orderTypeName, setOrderTypeName] = useState("Cita");
 
   const orderHandler = (e) => {
     const { name, value } = e.target;
@@ -29,7 +29,7 @@ export const NewOrder = (props) => {
       const ot = props.orderType.find((o) => o.idTipoOrden === value);
       setOrderTypeName(ot.descripcion);
     }
-    console.log(value);
+    // console.log(value);
   };
 
   const addExam = (e) => {
@@ -51,8 +51,10 @@ export const NewOrder = (props) => {
   const save = (e) => {
     e.preventDefault();
 
+    const randomNum = parseInt(Math.random() * 100000000000).toString();
+
     const data = {
-      nOrden: parseInt(Math.random() * 100000000000).toString(),
+      nOrden: randomNum,
       idtblMedico: order.doctor,
       idPaciente: order.patient,
       idTipoServicio: order.serviceType,
@@ -72,6 +74,7 @@ export const NewOrder = (props) => {
     ) {
       console.log(order);
       axios.post("https://localhost:44342/api/Orden", data);
+      window.location.href = `/order/new/barcode/${randomNum}`;
       //setOrder(defaultState);
     }
   };
@@ -163,6 +166,7 @@ export const NewOrder = (props) => {
                 value={order.appointmentDate}
                 onChange={(event) => orderHandler(event)}
               />
+              <p></p>
             </div>
           ) : (
             ""

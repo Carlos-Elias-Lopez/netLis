@@ -8,6 +8,7 @@ import axios from "axios";
 import { Header } from "./components/BasicStructure/Header";
 import { NewOrder } from "./components/Orders/NewOrder";
 import { Login } from "./components/seguridad/Login";
+import { Barcode } from "./components/Barcode/Barcode";
 
 const App = () => {
   const baseURL = "https://localhost:44342";
@@ -19,10 +20,19 @@ const App = () => {
   const [serviceArea, setServiceArea] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [test, setTest] = useState([]);
+  const [order, setOrder] = useState([]);
   const [auth, setAuth] = useState(true);
 
-  const getOrderType = () => {
+  const getOrder = () => {
     setLoading(true);
+    axios.get(`${baseURL}/api/Orden`).then((res) => {
+      setOrder(res.data);
+    });
+    setLoading(false);
+  };
+
+  const getOrderType = () => {
+    // setLoading(true);
     axios.get(`${baseURL}/api/TipoOrden`).then((res) => {
       setOrderType(res.data);
     });
@@ -30,7 +40,7 @@ const App = () => {
   };
 
   const getServiceType = () => {
-    setLoading(true);
+    // setLoading(true);
     axios.get(`${baseURL}/api/TipoServicio`).then((res) => {
       setServiceType(res.data);
     });
@@ -38,7 +48,7 @@ const App = () => {
   };
 
   const getPatient = () => {
-    setLoading(true);
+    // setLoading(true);
     axios.get(`${baseURL}/api/Paciente`).then((res) => {
       setPatient(res.data);
     });
@@ -46,7 +56,7 @@ const App = () => {
   };
 
   const getHospital = () => {
-    setLoading(true);
+    // setLoading(true);
     axios.get(`${baseURL}/api/Hospital`).then((res) => {
       setHospital(res.data);
     });
@@ -54,7 +64,7 @@ const App = () => {
   };
 
   const getServiceArea = () => {
-    setLoading(true);
+    // setLoading(true);
     axios.get(`${baseURL}/api/AreaServicio`).then((res) => {
       setServiceArea(res.data);
     });
@@ -62,7 +72,7 @@ const App = () => {
   };
 
   const getDoctor = () => {
-    setLoading(true);
+    // setLoading(true);
     axios.get(`${baseURL}/api/Medico`).then((res) => {
       setDoctor(res.data);
     });
@@ -70,7 +80,7 @@ const App = () => {
   };
 
   const getTest = () => {
-    setLoading(true);
+    // // setLoading(true);
     axios.get(`${baseURL}/api/Examen`).then((res) => {
       setTest(res.data);
     });
@@ -85,6 +95,7 @@ const App = () => {
     getServiceArea();
     getDoctor();
     getTest();
+    getOrder();
   }, []);
 
   return loading ? (
@@ -99,6 +110,7 @@ const App = () => {
             exact
             element={
               <NewOrder
+                order={order}
                 orderType={orderType}
                 serviceType={serviceType}
                 patient={patient}
@@ -108,6 +120,11 @@ const App = () => {
                 test={test}
               />
             }
+          />
+          <Route
+            path="order/new/barcode/:orderNum"
+            exact
+            element={<Barcode />}
           />
         </Routes>
       </Router>
