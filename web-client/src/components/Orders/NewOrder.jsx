@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Grid, TextField, Typography } from "@mui/material";
+// import { Grid, TextField, Typography } from "@mui/material";
 
-export const NewOrder = () => {
+export const NewOrder = (props) => {
   const defaultState = {
     patient: "",
     orderType: "",
@@ -10,9 +10,12 @@ export const NewOrder = () => {
     department: "",
     doctor: "",
     note: "",
+    test: [],
+    appointmentDate: new Date().toISOString().slice(0, 19).replace("T", " "),
   };
 
   const [order, setOrder] = useState(defaultState);
+  const [orderTypeName, setOrderTypeName] = useState("");
 
   const orderHandler = (e) => {
     const { name, value } = e.target;
@@ -20,12 +23,27 @@ export const NewOrder = () => {
       ...prev,
       [name]: value,
     }));
+
+    if (name === "orderType") {
+      const ot = props.orderType.find((o) => o.idTipoOrden === value);
+      setOrderTypeName(ot.descripcion);
+    }
   };
 
   const save = (e) => {
     e.preventDefault();
-    console.log(order);
-    setOrder(defaultState);
+    if (
+      order.patient !== "" &&
+      order.orderType !== "" &&
+      order.serviceType !== "" &&
+      order.hospital !== "" &&
+      order.department !== "" &&
+      order.doctor !== "" &&
+      order.test !== []
+    ) {
+      console.log(order);
+      setOrder(defaultState);
+    }
   };
 
   return (
@@ -39,15 +57,24 @@ export const NewOrder = () => {
             <label htmlFor="patient" className="form-label">
               Paciente
             </label>
-            <input
+
+            <select
               name="patient"
-              type="text"
-              className="form-control"
               id="patient"
+              className="form-select"
               value={order.patient}
+              onClick={orderHandler}
               onChange={orderHandler}
-              placeholder="Nombre o número de expendiente del paciente"
-            />
+            >
+              {props.patient.map((p) => {
+                return (
+                  <option
+                    key={p.idPaciente}
+                    value={p.idPaciente}
+                  >{`${p.primerNombre} ${p.segundoNombre} ${p.primerApellido} ${p.segundoApellido} - ${p.numIdentificacion}`}</option>
+                );
+              })}
+            </select>
           </div>
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="orderType" className="form-label">
@@ -58,12 +85,19 @@ export const NewOrder = () => {
               className="form-select"
               id="orderType"
               value={order.orderType}
+              onClick={orderHandler}
               onChange={orderHandler}
             >
-              <option value="sangre">Sangre</option>
-              <option value="orina">Orina</option>
+              {props.orderType.map((o) => {
+                return (
+                  <option key={o.idTipoOrden} value={o.idTipoOrden}>
+                    {o.descripcion}
+                  </option>
+                );
+              })}
             </select>
           </div>
+
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="serviceType" className="form-label">
               Tipo de servicio
@@ -71,15 +105,36 @@ export const NewOrder = () => {
             <select
               name="serviceType"
               value={order.serviceType}
+              onClick={orderHandler}
               onChange={orderHandler}
               className="form-select"
               id="serviceType"
             >
-              <option value="inss">INSS</option>
-              <option value="convenioinss">Convenio INNS</option>
-              <option value="pame">PAME</option>
+              {props.serviceType.map((s) => {
+                return (
+                  <option key={s.idTipoServicio} value={s.idTipoServicio}>
+                    {s.descripcion}
+                  </option>
+                );
+              })}
             </select>
           </div>
+
+          {orderTypeName === "Cita" ? (
+            <div className="mb-3 col-12 col-md-6">
+              <label htmlFor="appointmentDate" className="form-label">
+                Fecha de la cita
+              </label>
+              <input
+                type="datetime-local"
+                name="appointmentDate"
+                id="appointmentDate"
+                className="form-control"
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
 
         <h3 className="mb-3">Origen</h3>
@@ -88,15 +143,22 @@ export const NewOrder = () => {
             <label htmlFor="hospital" className="form-label">
               Hospital
             </label>
-            <input
+            <select
               name="hospital"
-              value={order.hospital}
-              onChange={orderHandler}
-              type="text"
-              className="form-control"
               id="hospital"
-              placeholder="Nombre o código del hospital"
-            />
+              className="form-select"
+              onClick={orderHandler}
+              onChange={orderHandler}
+              value={order.hospital}
+            >
+              {props.hospital.map((h) => {
+                return (
+                  <option key={h.idHospital} value={h.idHospital}>
+                    {h.descripcion}
+                  </option>
+                );
+              })}
+            </select>
           </div>
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="department" className="form-label">
@@ -105,27 +167,42 @@ export const NewOrder = () => {
             <select
               name="department"
               value={order.department}
+              onClick={orderHandler}
               onChange={orderHandler}
               className="form-select"
               id="department"
             >
-              <option value="oncologia">Oncología</option>
-              <option value="pediatria">Pediatría</option>
+              {props.serviceArea.map((s) => {
+                return (
+                  <option key={s.idAreaLabServicio} value={s.idAreaLabServicio}>
+                    {s.descripcion}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div className="mb-3 col-12 col-md-6">
             <label htmlFor="doctor" className="form-label">
               Médico
             </label>
-            <input
+
+            <select
               name="doctor"
-              value={order.doctor}
-              onChange={orderHandler}
-              type="text"
-              className="form-control"
               id="doctor"
-              placeholder="Nombre o código del médico"
-            />
+              onChange={orderHandler}
+              onClick={orderHandler}
+              value={order.doctor}
+              className="form-select"
+            >
+              {props.doctor.map((d) => {
+                return (
+                  <option
+                    key={d.idTblMedico}
+                    value={d.idTblMedico}
+                  >{`${d.nombres} ${d.apellidos} - ${d.codMinsa}`}</option>
+                );
+              })}
+            </select>
           </div>
         </div>
 
@@ -144,6 +221,29 @@ export const NewOrder = () => {
               id="doctor"
               placeholder="Observaciones"
             />
+          </div>
+        </div>
+
+        <h3 className="mb-3">Exámenes</h3>
+        <div className="row mb-3">
+          <div className="mb-3 col-12 col-md-6">
+            <div className="border border-1 border-dark overflow-auto rounded-3 h-10 p-2">
+              {props.test.map((t) => {
+                return (
+                  <div>
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      value={t.idExamen}
+                      id={t.idExamen}
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {t.descripcion}
+                    </label>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 

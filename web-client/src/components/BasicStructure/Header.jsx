@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
@@ -34,7 +35,7 @@ export const Header = () => {
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="#">
+                    <a className="dropdown-item" href="/order/new">
                       Crear orden
                     </a>
                   </li>
@@ -95,10 +96,6 @@ export const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <img
-                    src="https://scontent.fmga8-1.fna.fbcdn.net/v/t1.6435-9/75253044_2799641476723090_6804376207262482432_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=174925&_nc_ohc=ll5Y66LulA0AX_ukar5&_nc_ht=scontent.fmga8-1.fna&oh=6098dcef153f74c24209999f57324b8d&oe=61CBA86A"
-                    className="square-img img-fluid circle profile-pic me-1"
-                  />
                   Halbaro Halfonzo
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
