@@ -1,4 +1,5 @@
 ﻿using Dominio.Model;
+using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,19 @@ namespace Aplicacion.OrdenesDetalles
             public string Activo { get; set; }
 
         };
+
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>
+        {
+            public EjecutaValidacion()
+            {
+                RuleFor(od => od.IdOrden).NotEmpty();
+                RuleFor(od => od.NOrden).NotEmpty();
+                RuleFor(od => od.IdExamen).NotEmpty();
+                RuleFor(od => od.Activo).NotEmpty();
+            }
+                
+                
+        }
 
         public class Manejador : IRequestHandler<Ejecuta>
         {

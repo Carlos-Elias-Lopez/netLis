@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J1Pr7c/wMzeSca4Xhbr9ZrwA8cofaUMhCte4t906I2ARdsTpREgbxvLpenOwcKUsIRTWKeEmDJzBHr//lENkXw==",
+  "dgSpecHash": "/fN5IPDj/TeTC/0J0SSYiF6/e/tKToOJ1bWf9wgkaLircx93Rq/q5Dm393cp1p5DooMEnOIf1y8ZMZBzhzpdhw==",
   "success": true,
   "projectFilePath": "C:\\Users\\carlos\\Documents\\netLis\\Dominio\\Dominio.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\carlos\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.12\\microsoft.aspnetcore.cryptography.internal.5.0.12.nupkg.sha512",
     "C:\\Users\\carlos\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.12\\microsoft.aspnetcore.cryptography.keyderivation.5.0.12.nupkg.sha512",

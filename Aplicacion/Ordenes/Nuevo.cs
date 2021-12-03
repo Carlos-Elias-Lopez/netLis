@@ -1,4 +1,5 @@
 ﻿using Dominio.Model;
+using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,28 @@ namespace Aplicacion.Ordenes
             public DateTime FechaPreporte { get; set; }
         }
 
+        public class EjecutaValidacion : AbstractValidator<Ejecuta>
+        {
+            public EjecutaValidacion()
+            {
+                RuleFor(o => o.NOrden).NotEmpty();
+                RuleFor(o => o.IdtblMedico).NotEmpty();
+                RuleFor(o => o.IdPaciente).NotEmpty();
+                RuleFor(o => o.IdTipoServicio).NotEmpty();
+                RuleFor(o => o.IdTipoOrden).NotEmpty();
+                RuleFor(o => o.Asistencia).NotEmpty();
+                RuleFor(o => o.Observaciones).NotEmpty();
+                RuleFor(o => o.FechaOrden).NotEmpty();
+                RuleFor(o => o.Activo).NotEmpty();
+                RuleFor(o => o.FechaImprime).NotEmpty();
+                RuleFor(o => o.UsuarioImprime).NotEmpty();
+                RuleFor(o => o.Finalizado).NotEmpty();
+                RuleFor(o => o.FechaCita).NotEmpty();
+                RuleFor(o => o.FechaPreporte).NotEmpty();
+               
+            }
+
+        }
         public class Manejador : IRequestHandler<Ejecuta>
         {
             private readonly netLisContext _context;
